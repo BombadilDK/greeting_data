@@ -1,0 +1,9 @@
+{
+  "persons": [
+    { "firstname": "Anna", "lastname": "Jensen" },
+    { "firstname": "Mikkel", "lastname": "Hansen" },
+    { "firstname": "Sara", "lastname": "Lund" },
+    { "firstname": "Jonas", "lastname": "Nielsen" },
+    { "firstname": "Laura", "lastname": "Poulsen" }
+  ]
+}
