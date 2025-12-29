@@ -17,21 +17,6 @@ All documentaion should be in place. This DESIGN.md, a README.md, the .json file
 3: Script prints 'Hello <name>' to stdout.
 
 
-
-### Dependencies
-
-Besides using Bash, Linux, it relies on the use of jq to manipulate .json files.
-This can be installed using:
-
-sudo apt update
-sudo apt install jq
-
-If you use apt ofc.
-
-The names.json file need to be present in the folder.
-
-
-
 ### Function Overview
 
 This project uses a set of functions to try and keep the script structured and easy to extend. Each function has a single responsibility and is described below.
@@ -56,4 +41,3 @@ Each greeting includes the person's first and last name.
 #### main
 Coordinates the overall program flow.  
 Calls the other functions in the correct order and ensures the script runs from start to finish in a controlled way.
-

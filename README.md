@@ -10,16 +10,31 @@ I do use AI: Microsoft Copilot, Gemini and GitHub Copilot
 
 But only to the extent as tutors. They do not make this script. In fact any of them would have made this in a minute or so, whereas I will be several days making this.
 
+### Dependencies
+
+Besides using Bash, Linux, it relies on the use of `jq` to manipulate `.json` files.
+This can be installed using:
+
+```bash
+sudo apt update
+sudo apt install jq
+```
+
+If you use apt ofc.
+
+The `names.json` file need to be present in the folder.
 
 
 ### Structure
 
+```text
 greeting.sh
 ├── check_file_exists()
 ├── count_people()
 ├── ask_how_many_to_greet()
 ├── greet_people()
 └── main()
+```
 
 It's meant to be like a program in its build, so it will be made up by functions which each has its, yes well, function :-)
 
