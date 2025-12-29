@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Documentation - Greeting</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #555;
+        }
+        code {
+            background-color: #ecf0f1;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        pre {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 30px;
+        }
+        li {
+            margin: 8px 0;
+        }
+        .function-section {
+            background-color: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Design Documentation - Greeting</h1>
+
+    <section>
+        <h2>Purpose</h2>
+        <p>Purely to educate myself. The bashscript will read names from a .json file and send a 'Hello &lt;name&gt;' (Stdout, screen).</p>
+        <p>All documentation should be in place. This DESIGN.html, a README.md, the .json file and the .sh file with comments.</p>
+    </section>
+
+    <section>
+        <h2>Architecture</h2>
+        <ul>
+            <li><strong>Data (names.json):</strong> The names to be greeted.</li>
+            <li><strong>Logic (greeting.sh):</strong> Bashscript that reads the .json file and greet the names listed.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Flow</h2>
+        <ol>
+            <li>Start greeting.sh.</li>
+            <li>Script reads the names.json file.</li>
+            <li>Script prints 'Hello &lt;name&gt;' to stdout.</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>Dependencies</h2>
+        <p>Besides using Bash and Linux, it relies on the use of <code>jq</code> to manipulate .json files. This can be installed using:</p>
+        <pre><code>sudo apt update
+sudo apt install jq</code></pre>
+        <p>If you use apt, of course.</p>
+        <p>The <code>names.json</code> file needs to be present in the folder.</p>
+    </section>
+
+    <section>
+        <h2>Function Overview</h2>
+        <p>This project uses a set of functions to try and keep the script structured and easy to extend. Each function has a single responsibility and is described below.</p>
+
+        <div class="function-section">
+            <h3>check_file_exists</h3>
+            <p>Verifies that the file <code>names.json</code> is present in the project directory.</p>
+            <p>If the file is missing, the script stops and prints an error message to the user.</p>
+        </div>
+
+        <div class="function-section">
+            <h3>count_people</h3>
+            <p>Reads the <code>names.json</code> file and counts how many person entries are available.</p>
+            <p>Returns the number of people so the script can decide how many greetings are possible.</p>
+        </div>
+
+        <div class="function-section">
+            <h3>ask_how_many_to_greet</h3>
+            <p>Informs the user how many people are available in the <code>names.json</code> file.</p>
+            <p>Asks the user how many of these people they want to greet.</p>
+            <p>Validates the input to ensure it is a number and not greater than the total number of people.</p>
+        </div>
+
+        <div class="function-section">
+            <h3>greet_people</h3>
+            <p>Takes the number chosen by the user and prints a greeting for each of the selected people.</p>
+            <p>Each greeting includes the person's first and last name.</p>
+        </div>
+
+        <div class="function-section">
+            <h3>main</h3>
+            <p>Coordinates the overall program flow.</p>
+            <p>Calls the other functions in the correct order and ensures the script runs from start to finish in a controlled way.</p>
+        </div>
+    </section>
+</body>
+</html>
+
