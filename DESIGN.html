@@ -32,13 +32,7 @@
             border-radius: 3px;
             font-family: 'Courier New', monospace;
         }
-        pre {
-            background-color: #2c3e50;
-            color: #ecf0f1;
-            padding: 15px;
-            border-radius: 5px;
-            overflow-x: auto;
-        }
+        
         ul, ol {
             margin: 10px 0;
             padding-left: 30px;
@@ -58,11 +52,11 @@
 <body>
     <h1>Design Documentation - Greeting</h1>
 
-    <section>
+    <header>
         <h2>Purpose</h2>
         <p>Purely to educate myself. The bashscript will read names from a .json file and send a 'Hello &lt;name&gt;' (Stdout, screen).</p>
         <p>All documentation should be in place. This DESIGN.html, a README.md, the .json file and the .sh file with comments.</p>
-    </section>
+    </header>
 
     <section>
         <h2>Architecture</h2>
@@ -84,8 +78,10 @@
     <section>
         <h2>Dependencies</h2>
         <p>Besides using Bash and Linux, it relies on the use of <code>jq</code> to manipulate .json files. This can be installed using:</p>
-        <pre><code>sudo apt update
-sudo apt install jq</code></pre>
+        <!-- <pre> -->
+            <code>sudo apt update </code><br>
+            <code>sudo apt install jq</code>
+        <!-- </pre> -->
         <p>If you use apt, of course.</p>
         <p>The <code>names.json</code> file needs to be present in the folder.</p>
     </section>
