@@ -1,59 +1,55 @@
-# Contributing to Greeting_data
+# Contributing to greeting_data
 
-Thank you for your interest in contributing to this BashScript project!
+Thanks for helping improve this small Bash script project. This file explains how to report issues, propose changes, and submit contributions to `greeting.sh` (which reads names from `names.json` and prints greetings).
 
-This repository tracks the development of a BashScript which prints greetings to names from a .json file
+## Reporting bugs
+- Open an issue with a clear title.
+- Include: OS and version, Bash version (`bash --version`), exact command(s) you ran, expected vs actual behavior, and any error output.
+- If possible, provide a minimal reproduction (steps and sample `names.json`).
 
-## How to Contribute
+## Requesting features
+- Describe the user problem or use-case and a short example of expected behavior.
+- Keep feature requests focused and explain why it's useful for this script.
 
-### Reporting Issues
-If you find a command that no longer works, a typo, or a security risk in a configuration:
-1. Open an **Issue** describing the error.
-2. Include the specific OS version where the error occurred (e.g., Ubuntu 22.04 vs 24.04).
+## Submitting code changes (Pull Requests)
+- External Contributors: Fork the repo. 
+- Collaboraters: Clone the repo. 
+1. Create a branch with your initials followed by a / and a short desciptive name like `nom/<short-desc>`.
+1. Make small, focused commits with descriptive messages.
+1. Push your branch and open a Pull Request against `master`.
+1. In the Pull Request description, link any related issue and include a short test plan if applicable.
+- Be adviced that all Pull Requests needs to be approved and can only be merge by owner.
 
-### Pull Requests
-1. External Contributors: **fork** the repository and follow step 3, 4 and 5
-2. Collaborators: **Clone** the repository.
-3. Create a **Branch** for your changes (e.g., `update-samba-config`).
-3. **Commit** your changes with a clear message.
-4. **Push** to the branch and open a **Pull Request**.
+### Pull Request checklist
+- Code compiles / scripts run locally.
+- Include or update tests/examples if applicable.
+- Follow the Bash style notes below.
 
-## Documentation Style Guide
+## Bash style and quality
+- This project targets Bash. Declare the shell with a shebang: `#!/usr/bin/env bash`.
+- Use `set -euo pipefail` and trap errors where appropriate.
+- Quote variables (`"$var"`) and avoid word-splitting pitfalls.
+- Use functions for logical units and keep lines reasonably short.
+- Validate JSON edits with `jq` before committing: `jq . names.json`.
+- Run `shellcheck` (recommended) and fix warnings: `shellcheck greeting.sh`.
 
-To ensure all guides can be easily merged later, please follow this structure.
+## Testing locally
+- Run the script manually: `./greeting.sh` (ensure executable bit: `chmod +x greeting.sh`).
+- Syntax-check with Bash: `bash -n greeting.sh`.
+- Validate JSON files: `jq . names.json`.
 
-### File Naming
-*   Use `snake_case`.
-*   Prefix all installation guides with `guide_`.
-*   **Example:** `guide_cups.md`, `guide_samba.md`.
+## Commit message guidelines
+- Start with a short summary (50 chars or less), followed by a blank line and an optional body explaining the change.
+- Reference issues with `#<issue-number>`.
 
-### Content Structure
-Every guide should start with the following metadata header:
+## Adding or editing names.json
+- Keep the file valid JSON. Use `jq` or an editor that preserves formatting.
+- When adding many names, consider a separate PR focused only on data changes.
 
-```markdown
-# Guide: [Service Name]
+## Code of conduct
+Be respectful and constructive in issues and PRs. Maintain a positive, helpful tone.
 
-**Date:** [Year, Month, Day]
-**System:** [OS Version, e.g., Ubuntu Server 24.04]
-**Purpose:** [Brief explanation of what this achieves]
-```
+## Need help?
+- Open an issue describing what you'd like to do and someone will help or review your PR.
 
-### Formatting Rules
-1.  **Headings:**
-    *   Use `## Part X: [Title]` for main sections.
-    *   Use `### X. [Step Name]` for sub-steps.
-2.  **Commands:**
-    *   Always use code blocks (triple backticks) or inline code (single backticks) for terminal commands.
-    *   Do not use bold (`**`) for commands, as it makes copy-pasting difficult.
-3.  **Glossary:**
-    *   Include a "Glossary and Commands" section at the end of the file explaining new flags or concepts.
-
-### Example Code Block
-
-```bash
-# Good
-sudo systemctl restart cups
-
-# Avoid
-**sudo systemctl restart cups**
-```
+Thank you for contributing!
