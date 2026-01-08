@@ -1,9 +1,8 @@
 #!/bin/bash
-echo "Step 1: Checking for the presens of names.json"
-if [ -f names.json ]; then
-    echo "File found"
+FILENAME=$1
+echo "Step 1: Checking for the presens of $FILENAME"
+if [ -f $FILENAME]; then
     exit 0
 else
-    echo "File not found"
-    exec ./exit_script.sh "File names.json not found"
+    exec ./exit_script.sh "File $FILENAME not found"
 fi
