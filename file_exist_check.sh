@@ -1,8 +1,11 @@
 #!/bin/bash
+
+# $1 is the name of the data file passed to this script 
 FILENAME=$1
-echo "Step 1: Checking for the presens of $FILENAME"
+
+# Check for the presens of the file. If it exist go on to check for jq else error
 if [ -f $FILENAME]; then
-    exit 0
+    exec ./jq_installed_check.sh "$FILENAME"
 else
     exec ./exit_script.sh "File $FILENAME not found"
 fi
